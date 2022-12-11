@@ -21,7 +21,7 @@ st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
 @st.experimental_memo 
 def download_data():
-	url = 'https://www.datosabiertos.gob.pe/node/10105/download'
+	url = 'https://github.com/stephany-toribio/Datos_Hidrometereologicos_Piura/blob/main/11122022_bd_hdro_piura.csv'
 	filename = 'datos_piura.csv'
 	urllib.request.urlretrieve(url, filename)
 	df = pd.read_csv(filename)
