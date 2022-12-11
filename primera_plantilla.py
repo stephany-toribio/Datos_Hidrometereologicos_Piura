@@ -5,14 +5,7 @@ import urllib.request
 
 
 
-                 
-archivo_excel = 'hidro_piura.xlsx' 
-hoja_excel = 'hidro_piura' 
-
-df = pd.read_excel(archivo_excel,
-                   sheet_name = hoja_excel,
-                   usecols = 'A:P')
-
+  
 
 
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
