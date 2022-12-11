@@ -3,6 +3,26 @@ import pandas as pd
 import numpy as np 
 import urllib.request
 
+
+
+# id= 1V78oghpMUTT55U_70K_WQIF5hLicLKe6
+@st.experimental_memo 
+def download_data():
+	#https://drive.google.com/uc?id=YOURFILEID
+	url =  "https://drive.google.com/uc?id=1V78oghpMUTT55U_70K_WQIF5hLicLKe6"
+	output= 'data.xls'
+	gdown.dowload(url,output,quiet = False)
+	
+dowload_data()
+data = pd.read_xlx('data.xls' , sep=';',nrows=1000000 , parse_datas = ['FECHA_CORTE', 'FECHA_RESULTADO'])
+st.dataframe(data.head(20))
+cuentas = data ['CUENTA']
+st.line_chart(cuentas)
+
+
+
+
+
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
 #id = 1alnmXxvcOvu3o3UxL_41YwNmdLczgN1u
