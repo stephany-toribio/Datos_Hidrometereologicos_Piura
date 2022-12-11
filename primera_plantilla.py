@@ -22,9 +22,7 @@ st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
 #id = 1alnmXxvcOvu3o3UxL_41YwNmdLczgN1u
 '''
-El norte del país se encuentra instalado el Proyecto Especial Chira Piura, que se encarga de la administración de los recursos hídricos provenientes de los Valles del Chira y Piura, el fin de esto es el abastecimiento de agua para el sector agrícola que se desarrolla en la zona.
 
-Ellos cuentan con 27 estaciones o puntos de toma del caudal de los ríos en cuestión y las precipitaciones que sobre estos influyen, por lo que el presente proyecto pretende sistematizar esta información para brindar gráficas que permitan comprender de manera más amigable el comportamiento de los ríos Chira y Piura, a fin de lograr una toma de decisiones más eficiente por parte de las personas implicadas en el sector agrícola.
 '''
 
 @st.experimental_memo 
@@ -38,6 +36,8 @@ def download_data():
 dt = download_data()
 
 st.markdown('''
+	El norte del país se encuentra instalado el Proyecto Especial Chira Piura, que se encarga de la administración de los recursos hídricos provenientes de los Valles del Chira y Piura, el fin de esto es el abastecimiento de agua para el sector agrícola que se desarrolla en la zona.
+	Ellos cuentan con 27 estaciones o puntos de toma del caudal de los ríos en cuestión y las precipitaciones que sobre estos influyen, por lo que el presente proyecto pretende sistematizar esta información para brindar gráficas que permitan comprender de manera más amigable el comportamiento de los ríos Chira y Piura, a fin de lograr una toma de decisiones más eficiente por parte de las personas implicadas en el sector agrícola.
 	Este dataset muestra los datos hidrometereológicos registrados de las presas, estaciones hidrológicas e hidrométricas.
 	- **Base de Datos:** (https://www.datosabiertos.gob.pe/node/10105/download)''')
 
