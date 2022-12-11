@@ -2,41 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np 
 import urllib.request
-import plotly.express as px
-
-
-#Nikolai#
-excel_file = 'hidro_piura.xlsx'   #Nombre archivo a importar 
-sheet_name = 'hidro_piura'   #la hoja de excel que voy a importar
-
-df = pd.read_excel(excel_file, #importo el archivo excel
-                   sheet_name = sheet_name, #le digo cual hoja necesito
-                   usecols = 'A:O', #Columnas que quiero usar
-                   header =0) #desde que fila debe empezar a tomarme la informacion *Empieza a contar desde 0*
-
-df_CUENTA = df.groupby(['CT'], as_index = False)['CUENTA'].count()  #hago un tipo de TABLA DINAMICA para agrupar los datos
-
-df_CUENTA2 = df_CUENTA
-
-st.dataframe(df) #de esta forma nos va a mostrar el dataframe en Streamlit
-st.write(df_CUENTA2) #este nos sirve cuando no tenemos dataframe 
-
-
-
-#Crear un grafico de torta (pie chart)
-pie_chart = px.pie(df_CUENTA2, #tomo el dataframe2
-                   title = 'TIPOS DE CUENTA', #El titulo
-                   values = 'CUENTA',##columna
-                   names = 'CT') ## para verlo por EPS --> Colores
-
-st.plotly_chart(pie_chart) # de esta forma se va a mostrar el dataframe en Streamlit
-
-
-
-
-
-
-
 
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
@@ -103,15 +68,25 @@ df_provincia = dt[dt['PROVINCIA'] == op2]
 df_distrito = dt[dt['DISTRITO'] == op3]
 
 datos_hidro = ['CAUDAL07H', 'PROMEDIO24H', 'MAXIMA24H', 'PRECIP24H']
-columnas = [df_provincia, df_distrito]
 
-for j in range(0,2):
-	for i in range(0, 4):
-		graf = pd.DataFrame(columnas[j], columns=[datos_hidro[i]])
-		st.caption('Grafico de ' + datos_hidro[i])
-		st.line_chart(graf)
-		
-		
+for i in range(0, 4):
+	graf = pd.DataFrame(df_provincia , columns=[datos_hidro[i]])
+	st.caption('Grafico de ' + datos_hidro[i])
+	st.line_chart(graf)
+
+#
+grupo = dt.groupby(dt.PROVINCIA)
+provincia = grupo.get_group(op2)
+
+cont_distrito = provincia.iloc[:,5:]
+
+st.subheader("Data del monitoreo de contaminates del distrito seleccionado") 
+st.dataframe(cont_distrito)
+
+st.subheader("Gráficos interactivos")
+st.bar_chart(cont_distrito.mean())
+#
+
 op_multi = st.multiselect(
     "Seleccione las provincias que desea comparar", 
     options= dt["PROVINCIA"].unique()
@@ -121,13 +96,6 @@ x = dt.set_index("PROVINCIA")
 y = x.loc[op_multi]
 
 st.dataframe(y)
-z = x.loc[op_multi,"CAUDAL07H"]
+z = x.loc[op_multi,"PROMEDIO24H"]
 
 st.bar_chart(z)
-
-
-
-
-
-
-
