@@ -6,7 +6,7 @@ import plotly.express as px
 
 
 #Nikolai#
-excel_file = '11122022_bd_hdro_piura.csv'   #Nombre archivo a importar 
+excel_file = 'hidro_piura.xlsx'   #Nombre archivo a importar 
 sheet_name = '11122022_bd_hdro_piura'   #la hoja de excel que voy a importar
 
 df = pd.read_excel(excel_file, #importo el archivo excel
