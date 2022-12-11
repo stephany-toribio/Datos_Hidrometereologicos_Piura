@@ -11,7 +11,7 @@ def download_data():
 	#https://drive.google.com/uc?id=YOURFILEID
 	url =  "https://drive.google.com/uc?id=1wdbF1i-8jdePmWt1Hf7p6DuZJpaUE3Je"
 	output= 'data.xls'
-	gdown.dowload(url,output,quiet = False)
+	gdown.download(url,output,quiet = False)
 	
 download_data()
 data = pd.read_csv('data.csv' , sep=';')
