@@ -21,6 +21,11 @@ def download_data():
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
 #id = 1alnmXxvcOvu3o3UxL_41YwNmdLczgN1u
+'''
+El norte del país se encuentra instalado el Proyecto Especial Chira Piura, que se encarga de la administración de los recursos hídricos provenientes de los Valles del Chira y Piura, el fin de esto es el abastecimiento de agua para el sector agrícola que se desarrolla en la zona.
+
+Ellos cuentan con 27 estaciones o puntos de toma del caudal de los ríos en cuestión y las precipitaciones que sobre estos influyen, por lo que el presente proyecto pretende sistematizar esta información para brindar gráficas que permitan comprender de manera más amigable el comportamiento de los ríos Chira y Piura, a fin de lograr una toma de decisiones más eficiente por parte de las personas implicadas en el sector agrícola.
+'''
 
 @st.experimental_memo 
 def download_data():
@@ -76,7 +81,7 @@ for elem in dt['DISTRITO'].unique():
   lista_distrito.append(elem)
 
 op3 = st.selectbox('- Seleccione el distrito', tuple(sorted(lista_distrito)))
-st.write('Distrito seleccionada:', op3)
+st.write('Distrito seleccionado:', op3)
 
 
 #df_provincia = dt[dt['PROVINCIA'] == op2]
@@ -88,18 +93,6 @@ for i in range(0, 4):
 	graf = pd.DataFrame(df_distrito , columns=[datos_hidro[i]])
 	st.caption('Grafico de ' + datos_hidro[i])
 	st.line_chart(graf)
-
-#
-grupo = dt.groupby(dt.PROVINCIA)
-provincia = grupo.get_group(op3)
-
-cont_distrito = provincia.iloc[:,5:]
-
-st.subheader("Datos hidrológicos del distrito seleccionado") 
-st.dataframe(cont_distrito)
-
-st.subheader("Gráficos interactivos")
-st.bar_chart(cont_distrito.mean())
 #
 
 op_multi = st.multiselect(
