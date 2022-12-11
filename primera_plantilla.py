@@ -5,16 +5,16 @@ import urllib.request
 
 
 
-# id= 1V78oghpMUTT55U_70K_WQIF5hLicLKe6
+# id= 1wdbF1i-8jdePmWt1Hf7p6DuZJpaUE3Je
 @st.experimental_memo 
 def download_data():
 	#https://drive.google.com/uc?id=YOURFILEID
-	url =  "https://drive.google.com/uc?id=1V78oghpMUTT55U_70K_WQIF5hLicLKe6"
+	url =  "https://drive.google.com/uc?id=1wdbF1i-8jdePmWt1Hf7p6DuZJpaUE3Je"
 	output= 'data.xls'
 	gdown.dowload(url,output,quiet = False)
 	
 dowload_data()
-data = pd.read_xlx('data.xls' , sep=';',nrows=1000000 , parse_datas = ['FECHA_CORTE', 'FECHA_RESULTADO'])
+data = pd.read_csv('data.csv' , sep=';')
 st.dataframe(data.head(20))
 cuentas = data ['CUENTA']
 st.line_chart(cuentas)
