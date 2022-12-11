@@ -13,7 +13,7 @@ def download_data():
 	output= 'data.xls'
 	gdown.dowload(url,output,quiet = False)
 	
-dowload_data()
+download_data()
 data = pd.read_csv('data.csv' , sep=';')
 st.dataframe(data.head(20))
 cuentas = data ['CUENTA']
