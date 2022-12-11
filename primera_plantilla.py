@@ -61,15 +61,15 @@ graf1 = pd.DataFrame(
     columns=['CAUDAL07H', 'PROMEDIO24H', 'MAXIMA24H', 'PRECIP24H'])
 st.line_chart(graf1)
 
-st.header('Grafico de provincia por dato Hidrometereológico')
-
+st.header('Gráficos por distrito según dato Hidrometereológico')
+'''
 #selectbox de provincias
 lista_provincia = []
 for elem in dt['PROVINCIA'].unique():
   lista_provincia.append(elem)
 
 op2 = st.selectbox('- Seleccione la provincia', tuple(sorted(lista_provincia)))
-
+'''
 #selectbox de distritos
 lista_distrito = []
 for elem in dt['DISTRITO'].unique():
@@ -79,13 +79,13 @@ op3 = st.selectbox('- Seleccione el distrito', tuple(sorted(lista_distrito)))
 st.write('Distrito seleccionada:', op3)
 
 
-df_provincia = dt[dt['PROVINCIA'] == op2]
+#df_provincia = dt[dt['PROVINCIA'] == op2]
 df_distrito = dt[dt['DISTRITO'] == op3]
 
 datos_hidro = ['CAUDAL07H', 'PROMEDIO24H', 'MAXIMA24H', 'PRECIP24H']
 
 for i in range(0, 4):
-	graf = pd.DataFrame(df_provincia , columns=[datos_hidro[i]])
+	graf = pd.DataFrame(df_distrito , columns=[datos_hidro[i]])
 	st.caption('Grafico de ' + datos_hidro[i])
 	st.line_chart(graf)
 
@@ -95,7 +95,7 @@ provincia = grupo.get_group(op2)
 
 cont_distrito = provincia.iloc[:,5:]
 
-st.subheader("Data del monitoreo de contaminates del distrito seleccionado") 
+st.subheader("Datos hidrológicos del distrito seleccionado") 
 st.dataframe(cont_distrito)
 
 st.subheader("Gráficos interactivos")
