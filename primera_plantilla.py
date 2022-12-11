@@ -79,7 +79,7 @@ op3 = st.selectbox('- Seleccione el distrito', tuple(sorted(lista_distrito)))
 st.write('Distrito seleccionada:', op3)
 
 
-df_provincia = dt[dt['PROVINCIA'] == op2]
+#df_provincia = dt[dt['PROVINCIA'] == op2]
 df_distrito = dt[dt['DISTRITO'] == op3]
 
 datos_hidro = ['CAUDAL07H', 'PROMEDIO24H', 'MAXIMA24H', 'PRECIP24H']
