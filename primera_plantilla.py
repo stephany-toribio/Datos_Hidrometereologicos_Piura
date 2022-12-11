@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np 
 import urllib.request
+import plotly.express as px
+
 
 #Nikolai#
 excel_file = '11122022_bd_hdro_piura.csv'   #Nombre archivo a importar 
