@@ -9,8 +9,8 @@ st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
 @st.experimental_memo 
 def download_data():
-	url = 'https://www.datosabiertos.gob.pe/node/10105/download'
-	filename = 'datos_piura.csv'
+	url = 'https://github.com/stephany-toribio/Datos_Hidrometereologicos_Piura/blob/main/11122022_bd_hdro_piura.csv'
+	filename = '11122022_bd_hdro_piura.csv'
 	urllib.request.urlretrieve(url, filename)
 	df = pd.read_csv(filename)
 	return df 
@@ -19,7 +19,7 @@ dt = download_data()
 
 st.markdown('''
 	Este dataset muestra los datos hidrometereológicos registrados de las presas, estaciones hidrológicas e hidrométricas.
-	- **Base de Datos:** (https://www.datosabiertos.gob.pe/node/10105/download)''')
+	- **Base de Datos:** (https://github.com/stephany-toribio/Datos_Hidrometereologicos_Piura/blob/main/11122022_bd_hdro_piura.csv)''')
 
 st.header('Dataset Hidrometereológico')
 st.dataframe(dt)
