@@ -64,9 +64,9 @@ st.line_chart(graf1)
 st.header('Gráficos por distrito según dato Hidrometereológico')
 
 #selectbox de provincias
-#lista_provincia = []
-#for elem in dt['PROVINCIA'].unique():
-  #lista_provincia.append(elem)
+lista_provincia = []
+for elem in dt['PROVINCIA'].unique():
+  lista_provincia.append(elem)
 
 #op2 = st.selectbox('- Seleccione la provincia', tuple(sorted(lista_provincia)))
 
@@ -91,7 +91,7 @@ for i in range(0, 4):
 
 #
 grupo = dt.groupby(dt.PROVINCIA)
-provincia = grupo.get_group(op2)
+provincia = grupo.get_group(op3)
 
 cont_distrito = provincia.iloc[:,5:]
 
