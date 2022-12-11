@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np 
 import urllib.request
+import plotly.express as px  #pip install plotly-express "Añadido"
+
+
+
 
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
