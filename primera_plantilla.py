@@ -13,11 +13,6 @@ def download_data():
 	output= 'data.xls'
 	gdown.download(url,output,quiet = False)
 	
-download_data()
-data = pd.read_csv('data.csv' , sep=';')
-st.dataframe(data.head(20))
-cuentas = data ['CUENTA']
-st.line_chart(cuentas)
 
 
 
