@@ -76,6 +76,23 @@ for j in range(0,2):
 		graf = pd.DataFrame(columnas[j], columns=[datos_hidro[i]])
 		st.caption('Grafico de ' + datos_hidro[i])
 		st.line_chart(graf)
+		
+		
+op_multi = st.multiselect(
+    "Seleccione las provincias que desea comparar", 
+    options= dt["PROVINCIA"].unique()
+    )
+
+x = dt.set_index("PROVINCIA")
+y = x.loc[op_multi]
+
+st.dataframe(y)
+z = x.loc[op_multi,"CAUDAL07H"]
+
+st.bar_chart(z)
+
+
+
 
 
 
