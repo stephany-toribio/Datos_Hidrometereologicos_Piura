@@ -62,14 +62,14 @@ graf1 = pd.DataFrame(
 st.line_chart(graf1)
 
 st.header('Gráficos por distrito según dato Hidrometereológico')
-'''
-#selectbox de provincias
-lista_provincia = []
-for elem in dt['PROVINCIA'].unique():
-  lista_provincia.append(elem)
 
-op2 = st.selectbox('- Seleccione la provincia', tuple(sorted(lista_provincia)))
-'''
+#selectbox de provincias
+#lista_provincia = []
+#for elem in dt['PROVINCIA'].unique():
+  #lista_provincia.append(elem)
+
+#op2 = st.selectbox('- Seleccione la provincia', tuple(sorted(lista_provincia)))
+
 #selectbox de distritos
 lista_distrito = []
 for elem in dt['DISTRITO'].unique():
@@ -79,7 +79,7 @@ op3 = st.selectbox('- Seleccione el distrito', tuple(sorted(lista_distrito)))
 st.write('Distrito seleccionada:', op3)
 
 
-#df_provincia = dt[dt['PROVINCIA'] == op2]
+df_provincia = dt[dt['PROVINCIA'] == op2]
 df_distrito = dt[dt['DISTRITO'] == op3]
 
 datos_hidro = ['CAUDAL07H', 'PROMEDIO24H', 'MAXIMA24H', 'PRECIP24H']
