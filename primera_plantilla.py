@@ -80,7 +80,7 @@ provincia = grupo.get_group(op2)
 
 cont_distrito = provincia.iloc[:,5:]
 
-st.subheader("Data del monitoreo de contaminates del distrito seleccionado") 
+st.subheader("Data del monitoreo de contaminantes del distrito seleccionado") 
 st.dataframe(cont_distrito)
 
 st.subheader("Gráficos interactivos")
