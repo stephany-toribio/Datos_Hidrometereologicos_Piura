@@ -4,6 +4,39 @@ import pandas as pd
 import numpy as np 
 import urllib.request
 
+#Nikolai#
+excel_file = '11122022_bd_hdro_piura.csv'   #Nombre archivo a importar 
+sheet_name = '11122022_bd_hdro_piura'   #la hoja de excel que voy a importar
+
+df = pd.read_excel(excel_file, #importo el archivo excel
+                   sheet_name = sheet_name, #le digo cual hoja necesito
+                   usecols = 'A:O', #Columnas que quiero usar
+                   header =0) #desde que fila debe empezar a tomarme la informacion *Empieza a contar desde 0*
+
+df_CUENTA = df.groupby(['CT'], as_index = False)['CUENTA'].count()  #hago un tipo de TABLA DINAMICA para agrupar los datos
+
+df_CUENTA2 = df_CUENTA
+
+st.dataframe(df) #de esta forma nos va a mostrar el dataframe en Streamlit
+st.write(df_CUENTA2) #este nos sirve cuando no tenemos dataframe 
+
+
+
+#Crear un grafico de torta (pie chart)
+pie_chart = px.pie(df_CUENTA2, #tomo el dataframe2
+                   title = 'TIPOS DE CUENTA', #El titulo
+                   values = 'CUENTA',##columna
+                   names = 'CT') ## para verlo por EPS --> Colores
+
+st.plotly_chart(pie_chart) # de esta forma se va a mostrar el dataframe en Streamlit
+
+
+
+
+
+
+
+
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
 #id = 1alnmXxvcOvu3o3UxL_41YwNmdLczgN1u
