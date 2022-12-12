@@ -26,6 +26,8 @@ st.markdown('''
 	Este dataset muestra los datos hidrometereológicos registrados de las presas, estaciones hidrológicas e hidrométricas.
 	- **Base de Datos:** (https://www.datosabiertos.gob.pe/node/10105/download)''')
 
+st.sidebar.header("Filtro de datos comparativos entre distritos")
+
 st.header('Dataset Hidrometereológico')
 st.dataframe(dt)
 
@@ -49,7 +51,7 @@ st.header('Data Hidrometereológica del distrito seleccionado')
 
 
 op2 = st.selectbox('- Seleccione el distrito', sorted(dt['DISTRITO'].unique()))
-st.write('Distrito seleccionado: ', op2)
+st.write('Distrito seleccionadO: ', op2)
 
 grupo = dt.groupby(dt.DISTRITO)
 distrito = grupo.get_group(op2)
@@ -60,14 +62,14 @@ st.dataframe(cont_distrito)
 
 st.write(pd.DataFrame({'Max': distrito.iloc[:,5:].max(), 'Min': distrito.iloc[:,5:].min()}))
 
-st.subheader("Gráficos interactivos")
+st.subheader("- Gráficos interactivos")
 st.markdown('''Promedio de datos hidrometeorológicos recopilados''')
 st.bar_chart(cont_distrito.mean())
 
 df_distrito = dt[dt['DISTRITO'] == op2]
 
 datos_hidro = ['CAUDAL07H', 'PROMEDIO24H', 'MAXIMA24H', 'PRECIP24H']
-	
+
 for i in range(0, 4):
 	graf = pd.DataFrame(df_distrito , columns=[datos_hidro[i]])
 	st.caption('Grafico de ' + datos_hidro[i])
@@ -75,12 +77,12 @@ for i in range(0, 4):
 
 st.header('Filtro de data Hidrometereológica por distrito')
 
-op_multi = st.multiselect(
-    "Seleccione los distritos que desea comparar", 
+op_multi = st.sidebar.multiselect(
+    "Distritos", 
     options= dt["DISTRITO"].unique()
     )
 
-op_dato = st.selectbox('- Seleccione el dato Hidrometereológico que desea comparar', sorted(datos_hidro))
+op_dato = st.sidebar.selectbox('Dato Hidrometereológico', sorted(datos_hidro))
 
 x = dt.set_index("DISTRITO")
 y = x.loc[op_multi]
