@@ -61,8 +61,8 @@ st.dataframe(cont_distrito)
 st.write(pd.DataFrame({'Max': distrito.iloc[:,5:].max(), 'Min': distrito.iloc[:,5:].min()}))
 
 st.subheader("Gráficos interactivos")
-st.bar_chart(cont_distrito.mean())
 st.markdown('''Promedio de datos hidrometeorológicos recopilados''')
+st.bar_chart(cont_distrito.mean())
 
 df_distrito = dt[dt['DISTRITO'] == op2]
 
