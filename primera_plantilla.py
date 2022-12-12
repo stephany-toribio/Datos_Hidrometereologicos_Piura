@@ -57,7 +57,7 @@ st.header('Data Hidrometereológica del distrito seleccionado')
 
 
 op2 = st.selectbox('- Seleccione el distrito', sorted(dt['DISTRITO'].unique()))
-st.write('Distrito seleccionadO: ', op2)
+st.write('Distrito seleccionado: ', op2)
 
 grupo = dt.groupby(dt.DISTRITO)
 distrito = grupo.get_group(op2)
