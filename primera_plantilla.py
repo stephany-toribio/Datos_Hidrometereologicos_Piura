@@ -113,8 +113,8 @@ st.download_button(
 )
 
 
-st.write("""Caudal: es el volumen de agua por unidad de tiempo que pasa por una sección de un
-cauce. _Las unidades en las que se mide es en """)
+st.write("""Notas: 
+""")
 st.write(
 """\n
 - Las observaciones han sido obtenidas en diferentes fechas
