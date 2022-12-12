@@ -7,7 +7,7 @@ st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
 
 from PIL import Image
-image = Image.open('Hidro.jpg')
+image = Image.open('contaminacion.jpeg')
 st.image(image, caption='Distribución de las estaciones en el Proyecto Especial Chira Piura', use_column_width=True)
 
 
