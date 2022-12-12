@@ -5,14 +5,11 @@ import urllib.request
 
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
-
 from PIL import Image
 image = Image.open('contaminacion.jpeg')
 st.image(image, caption='Distribución de las estaciones en el Proyecto Especial Chira Piura', use_column_width=True)
 
-
 #id = 1alnmXxvcOvu3o3UxL_41YwNmdLczgN1u
-
 
 @st.experimental_memo 
 def download_data():
@@ -106,8 +103,6 @@ def convert_df(df):
 csv = convert_df(y)
 
 
-
-
 st.write("""Descarga la comparación realizada
 """)
 st.download_button(
@@ -116,7 +111,6 @@ st.download_button(
     file_name='Descargar archivo.csv',
     mime='text/csv',
 )
-
 
 st.write("""Notas: 
 """)
