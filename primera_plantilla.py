@@ -36,8 +36,8 @@ st.markdown('''
 
 ########################
 
-st.header('Dataset Hidrometereológico')  MODIFICACIÓN
-st.dataframe(dt) MODIFICACIÓN 
+st.header('Dataset Hidrometereológico')  #MODIFICACIÓN
+st.dataframe(dt) #MODIFICACIÓN 
 
 st.header('Resumen del dataset')
 dt = dt.drop( ##eliminamos columnas de las que no nos pueden beneficiar 
