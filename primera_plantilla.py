@@ -99,10 +99,6 @@ z = x.loc[op_multi, op_dato]
 st.bar_chart(z)
 
 
-
-
-
-
 @st.cache
 def convert_df(df):
     return df.to_csv().encode('utf-8')
@@ -115,9 +111,6 @@ st.download_button(
     file_name='Descargar archivo.csv',
     mime='text/csv',
 )
-
-
-
 
 
 st.write("""Caudal: es el volumen de agua por unidad de tiempo que pasa por una sección de un
