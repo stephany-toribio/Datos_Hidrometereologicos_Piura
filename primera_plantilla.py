@@ -207,3 +207,18 @@ st.write(
 """)
 
 
+
+
+@st.cache
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
+
+csv = convert_df(y)
+
+st.download_button(
+    label="Download",
+    data=csv,
+    file_name='Descargar archivo.csv',
+    mime='text/csv',
+)
+
