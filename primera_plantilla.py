@@ -32,7 +32,7 @@ st.header('Dataset Hidrometereológico')
 st.dataframe(dt)
 
 st.header('Resumen del dataset')
-dt = dt.drop(columns=['FECHA_CORTE', 'FECHA_MUESTRA', 'UNIDAD_MEDIDA', 'DEPARTAMENTO', 'UBIGEO'], axis=1)
+dt = dt.drop(columns=['UNIDAD_MEDIDA', 'DEPARTAMENTO', 'UBIGEO'], axis=1)
 st.dataframe(dt.describe())
 
 st.header('Estadistica Hidrometereológica del tipo de estacion')
