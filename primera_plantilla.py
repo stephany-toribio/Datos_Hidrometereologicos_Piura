@@ -120,18 +120,12 @@ st.download_button(
 
 
 
-
-
-
-
-
 st.write("""Caudal: es el volumen de agua por unidad de tiempo que pasa por una sección de un
 cauce. _Las unidades en las que se mide es en """)
-st.latex("m/s^3")
 st.write(
 """\n
 - Las observaciones han sido obtenidas en diferentes fechas
-- El caudal ha sido tomado cada 7 horas
+- El caudal ha sido tomado a las 7 horas
 - El promedio es referente al cauda durante 24 horas
 - Maximo valor del caudal en el periodo de 24 horas
 - Precipitación en 24 horas
