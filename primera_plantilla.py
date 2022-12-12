@@ -13,6 +13,7 @@ st.image(image, caption='Distribución de las estaciones en el Proyecto Especial
 
 #id = 1alnmXxvcOvu3o3UxL_41YwNmdLczgN1u
 
+
 @st.experimental_memo 
 def download_data():
 	url = 'https://www.datosabiertos.gob.pe/node/10105/download'
@@ -32,7 +33,6 @@ st.markdown('''
 	Este dataset muestra los datos hidrometereológicos registrados de las presas, estaciones hidrológicas e hidrométricas.
 	- **Base de Datos:** (https://www.datosabiertos.gob.pe/node/10105/download)''')
 
-st.sidebar.header("Filtro de datos comparativos entre distritos")
 
 st.header('Dataset Hidrometereológico')
 st.dataframe(dt)
@@ -69,7 +69,6 @@ st.dataframe(cont_distrito)
 st.write(pd.DataFrame({'Max': distrito.iloc[:,5:].max(), 'Min': distrito.iloc[:,5:].min()}))
 
 st.subheader("- Gráficos interactivos")
-st.markdown('''Promedio de datos hidrometeorológicos recopilados''')
 st.bar_chart(cont_distrito.mean())
 
 df_distrito = dt[dt['DISTRITO'] == op2]
@@ -83,12 +82,12 @@ for i in range(0, 4):
 
 st.header('Filtro de data Hidrometereológica por distrito')
 
-op_multi = st.sidebar.multiselect(
-    "Distritos", 
+op_multi = st.multiselect(
+    "- Distritos", 
     options= dt["DISTRITO"].unique()
     )
 
-op_dato = st.sidebar.selectbox('Dato Hidrometereológico', sorted(datos_hidro))
+op_dato = st.selectbox('- Dato Hidrometereológico', sorted(datos_hidro))
 
 x = dt.set_index("DISTRITO")
 y = x.loc[op_multi]
@@ -97,6 +96,5 @@ st.dataframe(y)
 z = x.loc[op_multi, op_dato]
 
 st.bar_chart(z)
-
 
 
