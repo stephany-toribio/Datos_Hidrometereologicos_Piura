@@ -5,6 +5,12 @@ import urllib.request
 
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
+
+from PIL import Image
+image = Image.open('contaminacion.jpeg')
+st.image(image, caption='Distribución de las estaciones en el Proyecto Especial Chira Piura', use_column_width=True)
+
+
 #id = 1alnmXxvcOvu3o3UxL_41YwNmdLczgN1u
 
 @st.experimental_memo 
@@ -94,6 +100,3 @@ st.bar_chart(z)
 
 
 
-from PIL import Image
-image = Image.open('contaminacion.jpeg')
-st.image(image, caption='La contaminación por el parque automotor antiguo es un problema en Lima Metropolitana', use_column_width=True)
