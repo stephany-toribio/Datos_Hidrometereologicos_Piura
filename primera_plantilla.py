@@ -91,3 +91,9 @@ st.dataframe(y)
 z = x.loc[op_multi, op_dato]
 
 st.bar_chart(z)
+
+
+
+from PIL import Image
+image = Image.open('contaminacion.jpeg')
+st.image(image, caption='La contaminación por el parque automotor antiguo es un problema en Lima Metropolitana', use_column_width=True)
