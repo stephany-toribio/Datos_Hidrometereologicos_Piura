@@ -34,6 +34,35 @@ st.markdown('''
 	- **Base de Datos:** (https://www.datosabiertos.gob.pe/node/10105/download)''')
 
 
+########################
+
+st.header('Dataset Hidrometereológico')  MODIFICACIÓN
+st.dataframe(dt) MODIFICACIÓN 
+
+st.header('Resumen del dataset')
+dt = dt.drop( ##eliminamos columnas de las que no nos pueden beneficiar 
+	#	para la visualización del resumen total
+	columns=['FECHA_CORTE', 'FECHA_MUESTRA', 'UNIDAD_MEDIDA', 'DEPARTAMENTO', 'UBIGEO'], axis=1)
+st.dataframe(dt.describe())
+
+st.markdown("""<div style="text-align: justify;"> 
+	Para la tabla anterior refleja un total de los datos en el que fueron captados 
+	en diferentes cuencas de la región mencionada (Piura).
+	
+	\n_count_: es un total o sumatoria de las cuencas
+	\n_mean_: media o promedio de los datos obtenidos 
+	\n_std_: representa mi desviación estándar 
+	\n_min_: el valor mínimo de todas las observaciones de la región
+	\n_25%_: El percentil 25 o cuartil 1 
+	\n_50%_: El percentil 50 o cuartil 2
+	\n_75%_: El percentil 75 o cuartil 3
+	\n\tLos percentiles son porcentajes en la ocurrencia de los datos \nmenor que o igual a este valor.
+	\n_max_: el valor máximo de todas las observaciones de la región
+	</div>
+	""",unsafe_allow_html=True)
+
+####################
+
 st.header('Dataset Hidrometereológico')
 st.dataframe(dt)
 
