@@ -62,11 +62,11 @@ st.write(pd.DataFrame({'Max': distrito.iloc[:,5:].max(), 'Min': distrito.iloc[:,
 
 st.subheader("Gráficos interactivos")
 st.bar_chart(cont_distrito.mean())
+st.markdown('''Promedio de datos hidrometeorológicos recopilados''')
 
 df_distrito = dt[dt['DISTRITO'] == op2]
 
 datos_hidro = ['CAUDAL07H', 'PROMEDIO24H', 'MAXIMA24H', 'PRECIP24H']
-st.markdown('''Promedio de datos hidrometeorológicos recopilados''')
 	
 for i in range(0, 4):
 	graf = pd.DataFrame(df_distrito , columns=[datos_hidro[i]])
