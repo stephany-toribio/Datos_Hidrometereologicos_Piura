@@ -105,6 +105,11 @@ def convert_df(df):
 
 csv = convert_df(y)
 
+
+
+
+st.write("""Descarga la comparación realizada
+""")
 st.download_button(
     label="Download",
     data=csv,
